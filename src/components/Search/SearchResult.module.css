@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.results {
+    max-width: 500px;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+}
+
+.view {
+    max-width: 60px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.view_list {
+    background: url("./../../commons/list.png") no-repeat;
+    width: 24px;
+    height: 24px;
+    display: block;
+    cursor: pointer;
+}
+
+.view_grid {
+    background: url("./../../commons/grid.png") no-repeat;
+    width: 24px;
+    height: 24px;
+    display: block;
+    cursor: pointer;
+}

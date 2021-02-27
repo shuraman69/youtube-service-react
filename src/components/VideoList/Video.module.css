@@ -1,0 +1,82 @@
+.item_list {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+
+.item_list:hover {
+    transform: translateX(25px);
+}
+
+.item_grid {
+    width: 320px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+
+.item_grid:hover {
+    transform: translateY(-18px);
+}
+
+.item_list img {
+    margin-right: 20px;
+}
+
+.grid:hover {
+    background-color: #a2a2a2;
+}
+
+.list:hover {
+    background-color: #a2a2a2;
+}
+
+.text_list div {
+    width: 700px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #000000;
+    text-align: left;
+    margin-bottom: 40px;
+
+}
+
+.text_list p {
+    width: 700px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: gray;
+}
+
+
+.text_grid p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: gray;
+}
+
+.text_grid div {
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #000000;
+}
+
+.video_container_list {
+    max-width: 1200px;
+}
+
+.video_container_grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

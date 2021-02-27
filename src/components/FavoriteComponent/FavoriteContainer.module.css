@@ -1,0 +1,13 @@
+
+.li {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    height: 35px;
+    margin-bottom: 10px;
+    padding: 7px;
+    transition: all 0.2s ease-in;
+}
+
+li:hover {
+    background-color: #bcc5d2;
+    cursor: pointer;
+}

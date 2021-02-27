@@ -1,25 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
+import {Button, Layout} from 'antd';
+import {Route} from 'react-router-dom'
+import HeaderMenu from "./HeaderMenu/HeaderMenu";
+import Login from "./components/Login/Login";
+import SearchContainerConnect from "./components/Search/SearchContainer";
+import FavoriteContainerConnect from "./components/FavoriteComponent/FavoriteContainer";
+import {Redirect} from "react-router";
+import VideoDetail from "./components/VideoDetail/VideoDetail";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const {Header, Content} = Layout;
+const styleDiv = {
+    display: 'flex',
+    justifyContent: 'space-between'
+}
+const styleBtn = {
+    marginTop: "15px"
+}
+
+function App({login, logout, totalResult, videoId}) {
+    return (
+        <Layout className="layout">
+            <Header style={{marginBottom: "20px"}}>
+                <div style={styleDiv}>
+                    <HeaderMenu/>
+                    <div style={{color: "white"}}>
+                        {login ? <h3 style={{color: "white", margin: 0}}>{login}</h3> : "Авторизуйтесь"}
+                    </div>
+                    <Button onClick={() => logout()} style={styleBtn} type='primary'>Выйти</Button>
+                </div>
+            </Header>
+            <Content style={{padding: '0 50px', minHeight: '700px'}}>
+                <div className="site-layout-content">
+                    <Route path={'/login'} render={Login}/>
+                    <Route path={'/search'} render={() => login ? <SearchContainerConnect totalResult={totalResult}/> :
+                        <Redirect to={"/login"}/>}/>
+                    <Route path={'/favorite'} render={() => login ? <FavoriteContainerConnect/> :
+                        <Redirect to={"/login"}/>}/>
+                    <Route path={'/videoDetail'} render={() => <VideoDetail videoId={videoId}/>}/>
+                </div>
+            </Content>
+        </Layout>
+    )
 }
 
 export default App;
