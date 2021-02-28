@@ -1,4 +1,4 @@
-import {Button, Modal} from 'antd';
+import {Modal} from 'antd';
 import SaveFavoriteForm from "./SaveFavoriteForm";
 
 const ModalComponent = ({
@@ -10,8 +10,19 @@ const ModalComponent = ({
                             setRange,
                             setRequest,
                             setRequestName,
-                            onSubmit
+                            submitId,
+                            onSearchSubmit,
+                            onEditSubmit
                         }) => {
+    const _submit = (event) => {
+        console.log(submitId)
+        if (submitId === 1) {
+            return onEditSubmit(event)
+        } else {
+            debugger
+            return onSearchSubmit(event)
+        }
+    }
     const onRequestValueChange = (event) => {
         setRequest(event.target.value)
     }
@@ -32,7 +43,7 @@ const ModalComponent = ({
                               onRequestNameValueChange={onRequestNameValueChange}
                               onRangeValueChange={onRangeValueChange}
                               request={request} requestName={requestName} range={range}
-                              onSubmit={onSubmit}
+                              onSubmit={_submit}
             />
         </Modal>
     );

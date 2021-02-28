@@ -7,6 +7,7 @@ const SaveFavoriteForm = ({
                               range,
                               onSubmit
                           }) => {
+    debugger
     return (
         <form onSubmit={onSubmit}>
             <label htmlFor="request">

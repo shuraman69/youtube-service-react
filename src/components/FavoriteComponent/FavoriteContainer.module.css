@@ -3,9 +3,26 @@
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
     height: 35px;
     margin-bottom: 10px;
+    font-size: 20px;
     padding: 7px;
     transition: all 0.2s ease-in;
 }
+
+.edit {
+    width: 100px;
+    font-size: 14px;
+    transition: color 0.2s ease-out;
+}
+
+.edit:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.li span:hover {
+    background-color: #b0becd;
+}
+
 
 li:hover {
     background-color: #bcc5d2;

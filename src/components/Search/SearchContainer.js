@@ -7,12 +7,12 @@ import {connect} from "react-redux";
 import {saveFavoriteRequest} from "../../store/reducers/favoriteReducer";
 
 const {Content} = Layout;
-const SearchContainer = ({totalResult, saveFavoriteRequest}) => {
+const SearchContainer = ({totalResult, saveFavoriteRequest, submitId, setSubmitId}) => {
     const [visible, setVisible] = useState(false)
     const [request, setRequest] = useState("")
     const [requestName, setRequestName] = useState("")
     const [range, setRange] = useState(12)
-    const onSubmit = (event) => {
+    const onSearchSubmit = (event) => {
         event.preventDefault()
         const favoriteRequest = {request, requestName, range};
         saveFavoriteRequest(favoriteRequest)
@@ -21,13 +21,13 @@ const SearchContainer = ({totalResult, saveFavoriteRequest}) => {
     return (
         <Layout className="layout">
             <Content>
-                <SearchFormContainerConnect setVisible={setVisible}/>
+                <SearchFormContainerConnect setSubmitId={setSubmitId} setVisible={setVisible}/>
                 {totalResult ? <VideoListContainerConnect/> : null}
                 <ModalComponent request={request} requestName={requestName}
                                 range={range} setRequest={setRequest}
                                 setRequestName={setRequestName} setRange={setRange}
                                 setVisible={setVisible} visible={visible}
-                                onSubmit={onSubmit}
+                                onSearchSubmit={onSearchSubmit} submitId={submitId}
                 />
             </Content>
         </Layout>

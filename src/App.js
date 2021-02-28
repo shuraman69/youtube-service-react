@@ -17,7 +17,7 @@ const styleBtn = {
     marginTop: "15px"
 }
 
-function App({login, logout, totalResult, videoId}) {
+function App({login, logout, totalResult, videoId,setSubmitId,submitId}) {
     return (
         <Layout className="layout">
             <Header style={{marginBottom: "20px"}}>
@@ -32,9 +32,9 @@ function App({login, logout, totalResult, videoId}) {
             <Content style={{padding: '0 50px', minHeight: '700px'}}>
                 <div className="site-layout-content">
                     <Route path={'/login'} render={Login}/>
-                    <Route path={'/search'} render={() => login ? <SearchContainerConnect totalResult={totalResult}/> :
+                    <Route path={'/search'} render={() => login ? <SearchContainerConnect submitId={submitId} setSubmitId={setSubmitId} totalResult={totalResult}/> :
                         <Redirect to={"/login"}/>}/>
-                    <Route path={'/favorite'} render={() => login ? <FavoriteContainerConnect/> :
+                    <Route path={'/favorite'} render={() => login ? <FavoriteContainerConnect submitId={submitId} setSubmitId={setSubmitId}/> :
                         <Redirect to={"/login"}/>}/>
                     <Route path={'/videoDetail'} render={() => <VideoDetail videoId={videoId}/>}/>
                 </div>

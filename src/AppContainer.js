@@ -3,6 +3,7 @@ import {connect, useDispatch} from "react-redux";
 import {useEffect} from "react";
 import {loginAC, logoutThunk} from "./store/reducers/loginReducer";
 import {setFavoriteFromLocalStorage} from "./store/reducers/favoriteReducer";
+import {useState} from "react";
 
 const AppContainer = ({userLogin, loginAC, totalResult, logoutThunk, setFavoriteFromLocalStorage, videoId}) => {
     const dispatch = useDispatch()
@@ -24,8 +25,11 @@ const AppContainer = ({userLogin, loginAC, totalResult, logoutThunk, setFavorite
             }
         }
     }, [])
+    //submitId для выборки обработчика в форме сохранения запроса(сохранить/редактировать)
+    const [submitId, setSubmitId] = useState(null)
 
-    return <App totalResult={totalResult} login={userLogin} logout={logoutThunk} videoId={videoId}/>
+    return <App submitId={submitId} setSubmitId={setSubmitId} totalResult={totalResult} login={userLogin}
+                logout={logoutThunk} videoId={videoId}/>
 }
 
 const mapStateToProps = (state) => {
